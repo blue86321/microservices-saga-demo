@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  orchestration-based-saga:
+    container_name: orchestration-based-saga
+    build:
+      context: ./
+      dockerfile: ./orchestration-based-demo/Dockerfile
+    networks:
+      - local
+    ports:
+      - "8080:8080"
+
+networks:
+  local:
+    driver: bridge
