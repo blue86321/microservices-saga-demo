@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package chunwei.protos.product;
+
+option java_multiple_files = true;
+option java_package = "com.chunwei.protos.product";
+option java_outer_classname = "ProductProto";
+
+service Product {
+  rpc CheckInventory(CheckInventoryRequest) returns (CheckInventoryResponse);
+}
+
+message CheckInventoryRequest {
+  string product_id = 1;
+  int32 quantity = 2;
+}
+
+message CheckInventoryResponse {
+  bool sufficient_stock = 1;
+}
