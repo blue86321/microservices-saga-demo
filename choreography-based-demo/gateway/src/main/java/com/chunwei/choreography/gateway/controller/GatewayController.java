@@ -18,7 +18,7 @@ public class GatewayController {
         this.gatewayService = gatewayService;
     }
 
-    @PostMapping("/place-order")
+    @PostMapping("/order")
     public ResponseEntity<String> placeOrder(@RequestBody PlaceOrderRequestDto placeOrderRequestDto) {
         return gatewayService.placeOrder(placeOrderRequestDto);
     }

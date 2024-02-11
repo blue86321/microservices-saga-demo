@@ -8,8 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 @Slf4j
@@ -17,8 +15,7 @@ public class GatewayService {
     @GrpcClient("order")
     OrderGrpc.OrderBlockingStub orderBlockingStub;
 
-    @PostMapping("/place-order")
-    public ResponseEntity<String> placeOrder(@RequestBody PlaceOrderRequestDto placeOrderRequestDto) {
+    public ResponseEntity<String> placeOrder(PlaceOrderRequestDto placeOrderRequestDto) {
         log.info("##### [Gateway]: PlaceOrder - Go to Order Service");
         CreateOrderResponse createOrderResponse = orderBlockingStub.createOrder(CreateOrderRequest.newBuilder()
             .setUserId(placeOrderRequestDto.getUserId())

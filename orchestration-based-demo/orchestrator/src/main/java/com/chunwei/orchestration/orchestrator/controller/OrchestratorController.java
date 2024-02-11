@@ -15,7 +15,7 @@ public class OrchestratorController {
         this.orchestratorService = orchestratorService;
     }
 
-    @PostMapping("/place-order")
+    @PostMapping("/order")
     public ResponseEntity<String> placeOrder(@RequestBody PlaceOrderRequestDto placeOrderRequestDto) {
         return orchestratorService.placeOrder(placeOrderRequestDto);
     }

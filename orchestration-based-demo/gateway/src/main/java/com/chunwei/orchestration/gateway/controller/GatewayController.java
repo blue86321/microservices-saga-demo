@@ -12,10 +12,10 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class GatewayController {
 
-    @PostMapping("/place-order")
+    @PostMapping("/order")
     public ResponseEntity<String> placeOrder(@RequestBody PlaceOrderRequestDto placeOrderRequestDto) {
         log.info("##### [Gateway]: PlaceOrder - Go to Orchestration");
         return new RestTemplate()
-            .postForEntity("http://localhost:8081/place-order", placeOrderRequestDto, String.class);
+            .postForEntity("http://localhost:8081/order", placeOrderRequestDto, String.class);
     }
 }
