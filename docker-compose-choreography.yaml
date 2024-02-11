@@ -3,9 +3,7 @@ version: "3.8"
 services:
   choreography-based-saga:
     container_name: choreography-based-saga
-    build:
-      context: ./
-      dockerfile: ./choreography-based-demo/Dockerfile
+    build: ./choreography-based-demo
     networks:
       - local
     ports:
