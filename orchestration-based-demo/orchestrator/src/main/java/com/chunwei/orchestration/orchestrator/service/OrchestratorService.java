@@ -21,6 +21,7 @@ public class OrchestratorService {
     @GrpcClient("product")
     ProductGrpc.ProductBlockingStub productBlockingStub;
 
+    // DISCLAIMER: We didn't implement `compensation` operations here. Ideally, we need to catch error and do compensation operations (e.g. create <--> delete)
     public ResponseEntity<String> placeOrder(PlaceOrderRequestDto placeOrderRequestDto) {
         String productId = placeOrderRequestDto.getProductId();
         String userId = placeOrderRequestDto.getUserId();

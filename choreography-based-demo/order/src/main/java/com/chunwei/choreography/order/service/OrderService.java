@@ -16,6 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
+// DISCLAIMER: We didn't implement `compensation` operations here. Ideally, we need to catch error and do compensation operations (e.g. create <--> delete)
 @Service
 @Slf4j
 public class OrderService {
