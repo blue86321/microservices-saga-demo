@@ -14,8 +14,12 @@ public class GatewayController {
 
     @PostMapping("/order")
     public ResponseEntity<String> placeOrder(@RequestBody PlaceOrderRequestDto placeOrderRequestDto) {
-        log.info("##### [Gateway]: PlaceOrder - Go to Orchestration");
-        return new RestTemplate()
+        log.info("##### [Gateway]: PlaceOrder - Go to Orchestration Service");
+
+        ResponseEntity<String> placeOrderResult = new RestTemplate()
             .postForEntity("http://localhost:8081/order", placeOrderRequestDto, String.class);
+
+        log.info("##### [Gateway]: PlaceOrder Done and Return");
+        return placeOrderResult;
     }
 }

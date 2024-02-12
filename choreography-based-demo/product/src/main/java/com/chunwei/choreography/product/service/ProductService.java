@@ -20,12 +20,12 @@ public class ProductService {
 
     @KafkaListener(topics = TopicName.TOPIC_CHECK_INVENTORY_REQUEST, groupId = "group1")
     public void handleCheckInventoryRequest(CheckInventoryEventRequestDto responseDto) {
-        log.info("##### [Product]: Receive Checking Inventory from Message Queue");
+        log.info("##### [Product]: Receive CheckInventoryRequest from Message Queue");
         log.info("##### [Product]: Checking Inventory");
 
         // YOUR CHECK LOGIC...
 
-        log.info("##### [Product]: Sending Response to Message Queue");
+        log.info("##### [Product]: Send CheckInventoryResponse to Message Queue");
         kafkaTemplate.send(TopicName.TOPIC_CHECK_INVENTORY_RESPONSE, CheckInventoryEventResponseDto.builder()
             .correlationId(responseDto.getCorrelationId())
             .sufficient(true)

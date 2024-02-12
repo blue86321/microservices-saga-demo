@@ -49,9 +49,9 @@ public class OrchestratorService {
             .setQuantity(quantity)
             .setTotalPrice(totalPrice)
             .build());
-        log.info("##### [Orchestrator]: PlaceOrder - Create Order Done");
+        log.info("##### [Orchestrator]: PlaceOrder - Order Created");
 
-        log.info("##### [Orchestrator]: PlaceOrder - Receive Result and Return");
+        log.info("##### [Orchestrator]: PlaceOrder Done and Return");
         if (!createOrderResponse.getSuccess()) {
             return ResponseEntity.badRequest().body("Create order error.");
         }

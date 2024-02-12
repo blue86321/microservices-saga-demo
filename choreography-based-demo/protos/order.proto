@@ -7,17 +7,17 @@ option java_package = "com.chunwei.protos.order";
 option java_outer_classname = "OrderProto";
 
 service Order {
-  rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse);
+  rpc PlaceOrder(PlaceOrderRequest) returns (PlaceOrderResponse);
 }
 
-message CreateOrderRequest {
+message PlaceOrderRequest {
   string user_id = 1;
   string product_id = 2;
   int32 quantity = 3;
   int32 total_price = 4;
 }
 
-message CreateOrderResponse {
+message PlaceOrderResponse {
   bool success = 1;
   string order_id = 2;
 }

@@ -1,8 +1,8 @@
 package com.chunwei.choreography.order.controller;
 
 import com.chunwei.choreography.order.service.OrderService;
-import com.chunwei.protos.order.CreateOrderRequest;
-import com.chunwei.protos.order.CreateOrderResponse;
+import com.chunwei.protos.order.PlaceOrderRequest;
+import com.chunwei.protos.order.PlaceOrderResponse;
 import com.chunwei.protos.order.OrderGrpc;
 import net.devh.boot.grpc.server.service.GrpcService;
 
@@ -15,9 +15,9 @@ public class OrderGrpcController extends OrderGrpc.OrderImplBase {
     }
 
     @Override
-    public void createOrder(CreateOrderRequest request,
-                            io.grpc.stub.StreamObserver<CreateOrderResponse> responseObserver) {
-        responseObserver.onNext(orderService.createOrder(request));
+    public void placeOrder(PlaceOrderRequest request,
+                            io.grpc.stub.StreamObserver<PlaceOrderResponse> responseObserver) {
+        responseObserver.onNext(orderService.placeOrder(request));
         responseObserver.onCompleted();
     }
 }
